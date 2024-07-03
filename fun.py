@@ -59,24 +59,24 @@ def registrar_p():
             while True:
                 try:
                     cantidad = int(input('ingrese la cantidad a comprar'))
+                    if cantidad > -1:
+                        break
+                    else:
+                        print("Debe ser positivo o 0")
                 except:
                     print("ERROR DEBE SER UN NUMERO ENTERO")
-                if cantidad > -1:
-                    break
-                else:
-                    print("Debe ser positivo o 0")
             cantidad = int(input('ingrese la cantidad a comprar'))
             t_venta5 = cantidad*precio_g1
         elif galon_g == 2:
             while True:
                 try:
                     cantidad = int(input('ingrese la cantidad a comprar'))
+                    if cantidad > -1:
+                        break
+                    else:
+                        print("Debe ser positivo o 0")
                 except:
                     print("ERROR DEBE SER UN NUMERO ENTERO")
-                if cantidad > -1:
-                    break
-                else:
-                    print("Debe ser positivo o 0")
             t_venta15 = cantidad*precio_g2
         salir = int(input('Desea agregar mas productos  1)si  2)no: '))
         total_c = t_venta15+t_venta5
@@ -101,7 +101,14 @@ def listar_todos_p():
     print("="*25)
     esperar_t()
 def buscar_p_por_rut():
-    pass
+    buscar_rut = int(input('ingrese rut a buscar'))
+    x = 0
+    for buscar_rut in range(len(datos_clientes)):
+        print(datos_clientes[x])
+    with open('archivo_cliente', mode="w", newline="") as archivo:
+        writer=csv.writer(archivo)
+        writer.writerows(datos_clientes)
+
 def imprimir_hoja_ruta():
     pass
 def salir_p():
