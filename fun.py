@@ -1,5 +1,6 @@
 import csv, msvcrt, os
 datos_clientes = []
+ruta = ["puentealto", "colina", "laflorida"]
 precio_g1 = 12500
 precio_g2 = 22500
 def menu():
@@ -39,11 +40,22 @@ def registrar_p():
             print("Su dirección debe tener mas 5 caracteres")
             esperar_t
     while True:
-        comuna = input('Ingrese su comuna')
-        if len(comuna) > 3:
-            break
-        else:
-            print("Su comuna debe tener mas de 3 caracteres")
+        try:
+            comuna = int(input('Ingrese su comuna, 1)puente alto, 2)colina, 3)La Florida'))
+            
+            if comuna ==1:
+                comuna = "puentealto"
+                break
+            elif comuna ==2:
+                comuna = "colina"
+                break
+            elif comuna ==3:
+                comuna="laflorida"
+                break
+            else:
+                print("ERROR NO ESCOGIO NINGUNA DE LAS COMUNAS")
+        except:
+            print("ERROR DEBE SER UNA DE LAS 3 OPCIONES")
             esperar_t
     print('Valor 5KG=12500$ Valor 15KG=22500$')
 
@@ -110,7 +122,10 @@ def buscar_p_por_rut():
         writer.writerows(datos_clientes)
 
 def imprimir_hoja_ruta():
-    pass
+    x = 0
+    comuna = input("que comuna busca, puentealto, colina, laflorida")
+    for comuna in range(len(datos_clientes)):
+        print(datos_clientes[x])
 def salir_p():
     print('Hasta Pronto!')
     exit()
